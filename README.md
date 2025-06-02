@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+# Practical 4 – React Firebase Authentication App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📚 Course Info
+- **Course:** IA607001 – Introductory Application Development Concepts  
+- **Instructor:** Tariq Khan  
+- **Assessment:** Practical 4 (5% of final grade)  
+- **Learning Outcome:** LO1 – Design and build secure applications with dynamic database functionality
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✅ Project Overview
 
-### `yarn start`
+This project is a role-based authentication system built with React and Firebase. Users can sign up as either **admin** or **customer**. After login, users are redirected to a protected dashboard based on their role.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 👨‍💼 Admin Features
+- Add products with:
+  - ID
+  - Name
+  - Price
+  - Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🛒 Customer Features
+- View a list of all available products (added by admin)
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔧 Technologies Used
 
-### `yarn build`
+- React.js (Functional Components + Hooks)
+- Firebase Authentication
+- Firebase Firestore (NoSQL)
+- React Router
+- Bootstrap (for layout)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📁 Folder Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `yarn eject`
+fb-auth-app/
+├── src/
+│   ├── components/
+│   │   ├── Admin.js 
+│   │   ├── Customer.js
+│   │   ├── Home.js
+│   │   ├── Login.js
+│   │   ├── Signup.js
+│   │   └── ProtectedRoute.js
+│   ├── context/
+│   │   └── UserAuthContext.js
+│   ├── firebase.js
+│   ├── App.js
+│   └── index.js
+├── public/
+├── package.json
+└── README.md
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+````
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🚀 How to Run the App
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 1. Clone the project or unzip the provided file:
+```bash
+cd fb-auth-app
+````
 
-## Learn More
+### 2. Install dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3. Add your Firebase config:
 
-### Code Splitting
+Edit `src/firebase.js` and replace the config object with your Firebase project credentials.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 4. Start the app:
 
-### Analyzing the Bundle Size
+```bash
+# For Windows (PowerShell):
+$env:NODE_OPTIONS="--openssl-legacy-provider"
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🧪 Firebase Setup Instructions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Create a new project: `ReactAuthPrj`
+3. Enable **Authentication** → Sign-in method → Email/Password
+4. Go to **Firestore Database** → Start a database → Add a `users` collection
+5. Store user roles like:
 
-### Advanced Configuration
+   ```json
+   {
+     "email": "user@example.com",
+     "role": "admin"
+   }
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## ✅ Features Implemented
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| Feature                           | Implemented |
+| --------------------------------- | ----------- |
+| Firebase Email/Password Login     | ✅           |
+| Role-based Dashboard (Admin/User) | ✅           |
+| Admin: Add Product to Firestore   | ✅           |
+| Customer: View Products           | ✅           |
+| Protected Routes                  | ✅           |
+| Context API for Auth Management   | ✅           |
 
-### `yarn build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🖼️ Screenshots to Include in Submission
+
+* Signup Page
+* Login Page
+* Admin Dashboard (with product form)
+* Customer Dashboard (with product list)
+* Firebase Authentication → Users
+* Firebase Firestore → Users & Products
+
+---
+
+## 📌 Notes
+
+* Ensure Firestore document IDs match Firebase Authentication UIDs.
+* Use lowercase field names like `role` and `email`.
+* Restart the server after config changes.
+
+---
+
+## 👤 Author
+
+* Name: \Roshan aryal
+* ID: \1000123440
+* Date: June 2025
+
+```
